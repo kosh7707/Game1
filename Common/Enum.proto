@@ -1,0 +1,28 @@
+syntax = "proto3";
+package Protocol;
+
+option csharp_namespace = "Google.Protobuf.Protocol";
+option cc_enable_arenas = true;
+
+enum PlayerType
+{
+	PLAYER_TYPE_NONE = 0;
+	PLAYER_TYPE_KNIGHT = 1;
+	PLAYER_TYPE_MAGE = 2;
+	PLAYER_TYPE_ARCHER = 3;
+}
+
+enum BaseState
+{
+	IDLE = 0;
+	MOVING = 1;
+	SKILL = 2;
+	DEAD = 3;
+	JUMP = 4;
+}
+
+enum MoveDir
+{
+	LEFT = 0;
+	RIGHT = 1;
+}

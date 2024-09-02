@@ -1,0 +1,115 @@
+syntax = "proto3";
+package Protocol;
+
+import "Enum.proto";
+import "Struct.proto";
+
+option csharp_namespace = "Google.Protobuf.Protocol";
+option cc_enable_arenas = true;
+
+message C_CHAT
+{
+	string msg = 1;
+}
+
+message S_CHAT
+{
+	bool success = 1;
+	string msg = 2;
+}
+
+message C_LOGIN
+{
+	string id = 1;
+	string pw = 2;
+}
+
+message S_LOGIN
+{
+	bool success = 1;
+	repeated CharacterInfo chracters = 2;
+}
+
+message C_ENTER
+{
+	uint64 characterId = 1;
+}
+
+message S_ENTER
+{
+	bool success = 1;
+	Player myPlayer = 2;
+	repeated Player players = 3;
+}
+
+message C_LEAVE
+{
+	
+}
+
+message S_ENTER_MAP
+{
+	Player player = 1;
+}
+
+message S_LEAVE
+{
+	uint64 playerId = 1;
+}
+
+message C_MOVE_START
+{
+	CreatureState state = 1;
+}
+
+message S_MOVE_START
+{
+	uint64 playerId = 1;
+	CreatureState state = 2;
+}
+
+message C_MOVE_END
+{
+	CreatureState state = 1;
+}
+
+message S_MOVE_END
+{
+	uint64 playerId = 1;
+	CreatureState state = 2;
+}
+
+message C_JUMP
+{
+	CreatureState state = 1;
+}
+
+message S_JUMP
+{
+	bool success = 1;
+	uint64 playerId = 2;
+	CreatureState state = 3;
+}
+
+message C_JUMP_END
+{
+	CreatureState state = 1;
+}
+
+message S_JUMP_END
+{
+	uint64 playerId = 1;
+	CreatureState state = 2;
+}
+
+message C_SKILL
+{
+	CreatureState state = 1;
+}
+
+message S_SKILL
+{
+	bool success = 1;
+	uint64 playerId = 2;
+	CreatureState state = 3;
+}
